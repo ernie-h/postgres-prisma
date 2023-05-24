@@ -17,6 +17,8 @@ model User {
   id                 Int                 @id @default(autoincrement())
   name               String
   viewed_experiments viewed_experiment[]
+  page_viewed        page_viewed[]
+  cta_clicked        cta_clicked[]
 }
 
 model viewed_experiment {
@@ -25,4 +27,19 @@ model viewed_experiment {
   timestamp     DateTime @default(now())
   experiment_id String
   variation_id  String
+}
+
+// Test deploy
+model page_viewed {
+  id        Int      @id @default(autoincrement())
+  user_id   User     @relation(fields: [id], references: [id])
+  timestamp DateTime @default(now())
+  page_name String
+}
+
+model cta_clicked {
+  id        Int      @id @default(autoincrement())
+  user_id   User     @relation(fields: [id], references: [id])
+  timestamp DateTime @default(now())
+  page_name String
 }
