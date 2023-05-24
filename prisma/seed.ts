@@ -3,22 +3,24 @@ import prisma from "../lib/prisma";
 async function main() {
   const response = await Promise.all([
     prisma.users.upsert({
+      where: {},
       update: {},
       create: {
         name: "Ernie Hao",
       },
     }),
     prisma.users.upsert({
+      where: {},
       update: {},
       create: {
         name: "Alex Beers",
       },
     }),
     prisma.users.upsert({
-      // where: { email: "rauchg@vercel.com" },
+      where: {},
       update: {},
       create: {
-        name: "Sheriff Hao",
+        name: "Rando",
       },
     }),
   ]);
