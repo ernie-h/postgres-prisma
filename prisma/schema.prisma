@@ -29,7 +29,6 @@ model viewed_experiment {
   variation_id  String
 }
 
-// Test deploy
 model page_viewed {
   id        Int      @id @default(autoincrement())
   user_id   User     @relation(fields: [id], references: [id])
