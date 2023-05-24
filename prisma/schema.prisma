@@ -14,8 +14,11 @@ datasource db {
 }
 
 model users {
-  id                 Int                 @id @default(autoincrement())
-  name               String
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  image     String
+  createdAt DateTime @default(now())
   viewed_experiments viewed_experiment[]
   page_viewed        page_viewed[]
   cta_clicked        cta_clicked[]
